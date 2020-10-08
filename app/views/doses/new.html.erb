@@ -1,0 +1,20 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container d-flex justify-content-center">
+    <h1 class="display-4">Add an Ingredient</h1>
+  </div>
+</div>
+<br>
+<div class="row d-flex mb-5 justify-content-center">
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.input :description %>
+  <%= f.association :ingredient, as: :radio_buttons %>
+  <%= f.button :submit %>
+  <% end %>
+</div>
+<div class="row d-flex mb-5 justify-content-center">
+  <%= link_to cocktail_path(@cocktail) do %>
+    <div class="btn btn-ghost">
+      <span>Cancel</span>
+    </div>
+  <% end %>
+</div>

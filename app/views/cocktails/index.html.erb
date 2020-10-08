@@ -3,18 +3,21 @@
     <h1 class="display-4">Cocktails</h1>
   </div>
 </div>
-<br>
-<div class="container d-flex flex-column justify-content-center align-items-center">
-  <div class="row col-6">
-    <ul class='list-group list-group-flush'>
-      <% @cocktails.each do |restaurant|%>
-        <li class='list-group-item'>
-          <%= link_to cocktail_path(cocktail) do %>
-            <%= cocktail.name %>
-          <% end %>
-          <br>
-        </li>
-      <% end %>
-    </ul>
+<div class="row mb-5 d-flex justify-content-around">
+  <%= link_to new_cocktail_path do %>
+    <div class="btn btn-ghost">
+      <span>Create your cocktail</span>
+    </div>
+  <% end %>
+</div>
+<div class="container d-flex-column justify-content-center">
+  <div class="row d-flex-row justify-content-center">
+    <% @cocktails.each do |cocktail|%>
+      <div class="col-sm-12 col-md-4 col-lg-2 m-1 card-category d-flex justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <%= link_to cocktail_path(cocktail) do %>
+          <%= cocktail.name %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

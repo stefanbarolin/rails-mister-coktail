@@ -4,11 +4,26 @@
   </div>
 </div>
 <br>
-<div class="container d-flex flex-column justify-content-center align-items-center">
-  <div class="row col-6">
-    <ul class='list-group list-group-flush'>
-      <li>
-      </li>
-    </ul>
-  </div>
+<div class="row d-flex mb-5 justify-content-center">
+  <%= link_to new_cocktail_dose_path(@cocktail) do %>
+    <div class="btn btn-ghost">
+      <span>Add an ingredient</span>
+    </div>
+  <% end %>
+</div>
+<div class="row d-flex mb-5 justify-content-center">
+  <ul class='list-group list-group-flush'>
+    <% @cocktail.doses.each do |dose|%>
+    <li class='list-group-item text-center'>
+      <p><%= dose.description %> - <%= dose.ingredient.name %></p>
+    </li>
+    <% end %>
+  </ul>
+</div>
+<div class="row d-flex mb-5 justify-content-center">
+  <%= link_to cocktails_path do %>
+    <div class="btn btn-ghost">
+      <span>Back to cocktail list</span>
+    </div>
+  <% end %>
 </div>
